@@ -3,9 +3,37 @@
   
     
     <entry>
-      <title><![CDATA[我的第一次]]></title>
-      <url>%2F2016%2F12%2F09%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%2F</url>
-      <content type="text"><![CDATA[第一次建站写博，这是一个测试而已。]]></content>
+      <title><![CDATA[杂谈]]></title>
+      <url>%2F2016%2F12%2F11%2F%E6%9D%82%E8%B0%88%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Python]]></title>
+      <url>%2F2016%2F12%2F11%2FPython%2F</url>
+      <content type="text"><![CDATA[Python Start ！！！]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Lua]]></title>
+      <url>%2F2016%2F12%2F11%2FLua%2F</url>
+      <content type="text"><![CDATA[Lua Start ！！！]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Cocos]]></title>
+      <url>%2F2016%2F12%2F11%2FCocos%2F</url>
+      <content type="text"><![CDATA[Cocos Start ！！！]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Andorid]]></title>
+      <url>%2F2016%2F12%2F11%2FAndorid%2F</url>
+      <content type="text"><![CDATA[Android Start ！！！]]></content>
     </entry>
 
     
