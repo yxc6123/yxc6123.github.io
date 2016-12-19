@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Python相关记录]]></title>
+      <url>%2F2016%2F12%2F19%2FPython%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95%2F</url>
+      <content type="text"><![CDATA[print(‘中文’) classmates=[‘Michael’, ‘Bob’, ‘Tracy’]print(classmates)print(len(classmates)) print(classmates[-1]) for ele in classmates: print(ele) print(ord(‘中’)) print(chr(66)) t = (1,)print(t)print(len(t)) -- coding: utf-8 --L = [ [‘Apple’, ‘Google’, ‘Microsoft’], [‘Java’, ‘Python’, ‘Ruby’, ‘PHP’], [‘Adam’, ‘Bart’, ‘Lisa’]] index start by 0print(L[0][0])]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[杂谈]]></title>
       <url>%2F2016%2F12%2F11%2F%E6%9D%82%E8%B0%88%2F</url>
       <content type="text"></content>
