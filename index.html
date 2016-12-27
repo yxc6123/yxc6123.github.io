@@ -730,7 +730,7 @@
               
                 
                 <a class="post-title-link" href="/2016/12/11/Lua/" itemprop="url">
-                  Lua
+                  Lua学习笔记之【1】
                 </a>
               
             
@@ -807,7 +807,36 @@
       
         
           
-            <p>Lua Start ！！！</p>
+            <p><strong>第一个lua程序 Hello world!</strong></p>
+<pre><code>print(&quot;Hello world!&quot;)
+</code></pre><p><strong>稍微复杂一点的</strong></p>
+<pre><code>function fact( n )
+    if n == 0 then
+        return 1
+    else
+        return n * (n - 1)
+    end
+end
+
+print(fact(4))
+</code></pre><p><strong>全局变量</strong></p>
+<pre><code>print(b)     ----&gt; nil 【b没有值】
+b = 10
+print(b)    ----&gt; 10
+</code></pre><p><strong>删除一个全局变量</strong></p>
+<pre><code>b = nil
+print(b) ----&gt;nil
+</code></pre><p><strong>词法约定: Lua的保留字</strong></p>
+<pre><code>and        break      do         else       elseif
+end        false      for        function   if
+in         local      nil        not        or
+repeat     return     then       true       until
+while
+</code></pre><blockquote>
+<p><strong>Lua 大小写敏感</strong></p>
+<p><strong>注释：单行注释 —</strong></p>
+<p><strong>多行注释 —[[ print() ]]—</strong></p>
+</blockquote>
 
           
         

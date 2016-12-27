@@ -24,9 +24,9 @@
 
     
     <entry>
-      <title><![CDATA[Lua]]></title>
+      <title><![CDATA[Lua学习笔记之【1】]]></title>
       <url>%2F2016%2F12%2F11%2FLua%2F</url>
-      <content type="text"><![CDATA[Lua Start ！！！]]></content>
+      <content type="text"><![CDATA[第一个lua程序 Hello world! print(&quot;Hello world!&quot;) 稍微复杂一点的 function fact( n ) if n == 0 then return 1 else return n * (n - 1) end end print(fact(4)) 全局变量 print(b) ----&gt; nil 【b没有值】 b = 10 print(b) ----&gt; 10 删除一个全局变量 b = nil print(b) ----&gt;nil 词法约定: Lua的保留字 and break do else elseif end false for function if in local nil not or repeat return then true until while Lua 大小写敏感 注释：单行注释 — 多行注释 —[[ print() ]]—]]></content>
     </entry>
 
     
