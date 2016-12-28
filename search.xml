@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title><![CDATA[Lua学习笔记之【2】]]></title>
+      <url>%2F2016%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%902%E3%80%91%2F</url>
+      <content type="text"><![CDATA[类型和值 nil 和 false 为假其他所有值均为真 string 类型 a = &quot;Hello world!&quot; print(a) ====&gt; Hello World! \a bell \b back space -- 后退 \f form feed -- 换页 \n newline -- 换行 \r carriage return -- 回车 \t horizontal tab -- 制表 \v vertical tab \\ backslash -- &quot;\&quot; \&quot; double quote -- 双引号 \&apos; single quote -- 单引号 \[ left square bracket -- 左中括号 \] right square bracket -- 右中括号 Lua会自动在string和numbers之间自动进行类型转换，当一个字符串使用算术操作符时，string就会被转成数字 print(&quot;10 + 1) ---&gt; 11 tostirng(10) ---&gt; &quot;10&quot; tonumber(&quot;10&quot;) ---&gt; 10 算数运算符 二元运算符： + － × / ＾ 一元运算符： － 关系运算符 &lt; &gt; &lt;= &gt;= == ~=（不等于） 逻辑运算符 and or not 连接运算符 .. &quot;hell0&quot; .. 1 ---&gt; hello1 表的构造 days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday“，&quot;Friday&quot;, &quot;Saturday&quot;} 表内的字段可以使用任何类型]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Lua学习笔记之【4】]]></title>
+      <url>%2F2016%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%904%E3%80%91%2F</url>
+      <content type="text"><![CDATA[迭代器 function list_iter( t ) local i = 0 local n = table.getn(t) return function ( ... ) i = i + 1 if i &lt;= n then return t[i] end end end t = {10, 20, 30, 40} iter = list_iter(t) while true do local ele = iter() if ele == nil then break end print(ele) end for ele in list_iter(t) do print(ele) end 一般情况我们使用： for key, val in pairs(table) do loop-part end for i, v ipairs(table) do loop-part end 下面情况对比： t = {1,2,3,4,nil,10} for i,k in pairs(t) do print(k) end 输出结果： 1 2 3 4 10 for i,k in ipairs(t) do print(k) end 输出结果：1 2 3 4 编译，运行，错误Lua提供高级的require函数来加载运行库。粗略的说require和dofile完成同样的功能但有两点不同： 1. require会搜索目录加载文件 2. require会判断是否文件已经加载避免重复加载同一文件。由于上述特征，require在Lua中是加载库的更好的函数 C packagesLua在一个叫loadlib的函数内提供了所有的动态连接的功能。这个函数有两个参数:库的绝对路径和初始化函数 local path = &quot;/usr/local/lua/lib/libluasocket.so&quot; local f = loadlib(path, &quot;luaopen_socket&quot;) f() -- actually open the library loadlib函数加载指定的库并且连接到Lua，然而它并不打开库（也就是说没有调用初始化函数），反之他返回初始化函数 作为Lua的一个函数，这样我们就可以直接在Lua中调用他。如果加载动态库或者查找初始化函数时出错，loadlib将返回 nil和错误信息。我们可以修改前面一段代码，使其检测错误然后调用初始化函数： pcall在保护模式（protected mode）下执行函数内容，同时捕获所有的异常和错误。若一切正常，pcall返回true以及“被 执行函数”的返回值；否则返回nil和错误信息. local status, err = pcall(function () error({code=121}) end) print(err.code) --&gt; 121]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Lua学习笔记之【3】]]></title>
+      <url>%2F2016%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%903%E3%80%91%2F</url>
+      <content type="text"><![CDATA[赋值改变一个值基本方法 a = “hello world”a = “hello” .. “world” —&gt;&gt; 使用 连接符 .. 连接 a, b, c = 0, 1 print(a, b, c) —&gt;&gt; a = 0 b = 1 c = nil 控制结构语句和C语言一样使用 if condition then then-part end if condition then then-part else else-part end if condition then then-part elseif condition then elseif-part ... elseif-part end while condition do statements end repeat statements until conditions for var=exp1, exp2, exp3 do loop-part end for将用exp3作为step从exp1（初始值）到exp2（终止值），执行loop-part。其中exp3可以省略，默认step=1 for _, v in pairs(a) do print() end 函数function function_name( ... ) -- body end 当函数只有一个参数并且参数是字符或者表构造的时候，（）可有可无 print &quot;hello world&quot; &lt;-----&gt; print(&quot;hello world&quot;) dofile &quot;a.lu&quot; &lt;-----&gt; dofile(&quot;a.lua&quot;) 语法糖效果： o:func(x) &lt;-----&gt; o.foo(o, x) 多函数返回 s, e = stirng.find(‘hello Lua users”, “Lua”) print(s, e) —-&gt; 7 9 返回多个结果的时候直接在return处返回即可]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Python相关记录]]></title>
       <url>%2F2016%2F12%2F19%2FPython%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95%2F</url>
       <content type="text"><![CDATA[print(‘中文’) classmates=[‘Michael’, ‘Bob’, ‘Tracy’]print(classmates)print(len(classmates)) print(classmates[-1]) for ele in classmates: print(ele) print(ord(‘中’)) print(chr(66)) t = (1,)print(t)print(len(t)) -- coding: utf-8 --L = [ [‘Apple’, ‘Google’, ‘Microsoft’], [‘Java’, ‘Python’, ‘Ruby’, ‘PHP’], [‘Adam’, ‘Bart’, ‘Lisa’]] index start by 0print(L[0][0])]]></content>
@@ -26,6 +47,13 @@
     <entry>
       <title><![CDATA[Lua学习笔记之【1】]]></title>
       <url>%2F2016%2F12%2F11%2FLua%2F</url>
+      <content type="text"><![CDATA[第一个lua程序 Hello world! print(&quot;Hello world!&quot;) 稍微复杂一点的 function fact( n ) if n == 0 then return 1 else return n * (n - 1) end end print(fact(4)) 全局变量 print(b) ----&gt; nil 【b没有值】 b = 10 print(b) ----&gt; 10 删除一个全局变量 b = nil print(b) ----&gt;nil 词法约定: Lua的保留字 and break do else elseif end false for function if in local nil not or repeat return then true until while Lua 大小写敏感 注释：单行注释 — 多行注释 —[[ print() ]]—]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Lua学习笔记之【1】]]></title>
+      <url>%2F2016%2F12%2F11%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%901%E3%80%91%2F</url>
       <content type="text"><![CDATA[第一个lua程序 Hello world! print(&quot;Hello world!&quot;) 稍微复杂一点的 function fact( n ) if n == 0 then return 1 else return n * (n - 1) end end print(fact(4)) 全局变量 print(b) ----&gt; nil 【b没有值】 b = 10 print(b) ----&gt; 10 删除一个全局变量 b = nil print(b) ----&gt;nil 词法约定: Lua的保留字 and break do else elseif end false for function if in local nil not or repeat return then true until while Lua 大小写敏感 注释：单行注释 — 多行注释 —[[ print() ]]—]]></content>
     </entry>
 
