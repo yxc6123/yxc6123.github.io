@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Lua学习笔记之【5】]]></title>
+      <url>%2F2016%2F12%2F29%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%905%E3%80%91%2F</url>
+      <content type="text"><![CDATA[协同的基础Lua的所有协同函数存放于coroutine table.create函数用于创建新的协同程序，其只有 一个参数：一个函数，即协同程序将要运行的代码。若一切顺利，返回值为thread类型，表 示创建成功。通常情况下，create的参数是匿名函数： co = coroutine.create(functon () -- do something... end) print(coroutine.status(co)) ====&gt; suspended print(co) ====&gt; return thread: 006FC108 coroutine.resume(co) ====&gt; do somthing print(coroutine.status(co)) ====&gt; dead co = coroutine.create(function ( ... ) for i=1, 10 do print(&quot;co....&quot;..i) coroutine.yield() end end) 使用函数yield可以使程序挂起，当我们激活被挂起的程序时，将从函数yield的位置继续执 行程序，直到再次遇到yield或程序结束 coroutine.resume(co) co....1 print(coroutine.status(co)) suspended coroutine.resume(co) co....2 print(coroutine.status(co)) suspended coroutine.resume(co) co....3 print(coroutine.status(co)) suspended coroutine.resume(co) co....4 通过resume-yield来交换数据1.只有resume,没有yield, resume把参数传递给协同程序 co = coroutine.create(function (a,b,c) print(&quot;co&quot;, a,b,c) end) coroutine.resume(co, 1, 2, 3) ------&gt; co 1 2 3 2.数据由yield传给resume。true表明调用成功，true之后的部分，即是yield的参数 co = coroutine.create(function ( a, b ) coroutine.yield(a + b, a - b) end) print(coroutine.resume(co, 30, 10)) -------40 20 resume的参数也会传递过去 co = coroutine.create (function () print(&quot;co&quot;, coroutine.yield()) end) coroutine.resume(co) coroutine.resume(co, 4, 5) ------&gt; co 4 5 3.协同代码结束时的返回值，会传给resume co = coroutine.create(function () return 6, 7 end) print(coroutine.resume(co)) -----&gt; true 6 7 协同最具代表性的例子是用来解决生产者-消费者问题function receive( prod ) local status, value = coroutine.resume(prod) return value end function send( x ) coroutine.yield(x) end -- 创建协同函数 producer = coroutine.create(function ( ... ) while true do local x = io.read() send(x) end end) function filter( prod ) return coroutine.create(function ( ... ) local line = 1 while true do local x = receive(prod) x = string.format(&quot;%5d %s&quot;, line, x) send(x) line = line + 1 end end) end function consumer( prod ) while true do local x = receive(prod) io.write(x, &quot;\n&quot;) end end consumer(filter(producer)) 非抢占式多线程]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Lua学习笔记之【2】]]></title>
       <url>%2F2016%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%902%E3%80%91%2F</url>
       <content type="text"><![CDATA[类型和值 nil 和 false 为假其他所有值均为真 string 类型 a = &quot;Hello world!&quot; print(a) ====&gt; Hello World! \a bell \b back space -- 后退 \f form feed -- 换页 \n newline -- 换行 \r carriage return -- 回车 \t horizontal tab -- 制表 \v vertical tab \\ backslash -- &quot;\&quot; \&quot; double quote -- 双引号 \&apos; single quote -- 单引号 \[ left square bracket -- 左中括号 \] right square bracket -- 右中括号 Lua会自动在string和numbers之间自动进行类型转换，当一个字符串使用算术操作符时，string就会被转成数字 print(&quot;10 + 1) ---&gt; 11 tostirng(10) ---&gt; &quot;10&quot; tonumber(&quot;10&quot;) ---&gt; 10 算数运算符 二元运算符： + － × / ＾ 一元运算符： － 关系运算符 &lt; &gt; &lt;= &gt;= == ~=（不等于） 逻辑运算符 and or not 连接运算符 .. &quot;hell0&quot; .. 1 ---&gt; hello1 表的构造 days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday“，&quot;Friday&quot;, &quot;Saturday&quot;} 表内的字段可以使用任何类型]]></content>
@@ -46,14 +53,14 @@
     
     <entry>
       <title><![CDATA[Lua学习笔记之【1】]]></title>
-      <url>%2F2016%2F12%2F11%2FLua%2F</url>
+      <url>%2F2016%2F12%2F11%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%901%E3%80%91%2F</url>
       <content type="text"><![CDATA[第一个lua程序 Hello world! print(&quot;Hello world!&quot;) 稍微复杂一点的 function fact( n ) if n == 0 then return 1 else return n * (n - 1) end end print(fact(4)) 全局变量 print(b) ----&gt; nil 【b没有值】 b = 10 print(b) ----&gt; 10 删除一个全局变量 b = nil print(b) ----&gt;nil 词法约定: Lua的保留字 and break do else elseif end false for function if in local nil not or repeat return then true until while Lua 大小写敏感 注释：单行注释 — 多行注释 —[[ print() ]]—]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Lua学习笔记之【1】]]></title>
-      <url>%2F2016%2F12%2F11%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%901%E3%80%91%2F</url>
+      <url>%2F2016%2F12%2F11%2FLua%2F</url>
       <content type="text"><![CDATA[第一个lua程序 Hello world! print(&quot;Hello world!&quot;) 稍微复杂一点的 function fact( n ) if n == 0 then return 1 else return n * (n - 1) end end print(fact(4)) 全局变量 print(b) ----&gt; nil 【b没有值】 b = 10 print(b) ----&gt; 10 删除一个全局变量 b = nil print(b) ----&gt;nil 词法约定: Lua的保留字 and break do else elseif end false for function if in local nil not or repeat return then true until while Lua 大小写敏感 注释：单行注释 — 多行注释 —[[ print() ]]—]]></content>
     </entry>
 
