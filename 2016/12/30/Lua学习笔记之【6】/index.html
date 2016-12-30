@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="yangso,Cocos,Lua,Python" />
 
 
 
@@ -84,16 +84,52 @@
 
 
 
-<meta name="description" content="Python Start ！！！">
+<meta name="description" content="Lua 元表概念Set = {}
+Set.mt = {}
+
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+– 并集function Set.union">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python">
-<meta property="og:url" content="http://yangso.com/2016/12/11/Python/index.html">
+<meta property="og:title" content="Lua学习笔记之【6】">
+<meta property="og:url" content="http://yangso.com/2016/12/30/Lua学习笔记之【6】/index.html">
 <meta property="og:site_name" content="洋葱的个人主页">
-<meta property="og:description" content="Python Start ！！！">
-<meta property="og:updated_time" content="2016-12-10T17:46:04.897Z">
+<meta property="og:description" content="Lua 元表概念Set = {}
+Set.mt = {}
+
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+– 并集function Set.union">
+<meta property="og:updated_time" content="2016-12-30T16:18:46.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python">
-<meta name="twitter:description" content="Python Start ！！！">
+<meta name="twitter:title" content="Lua学习笔记之【6】">
+<meta name="twitter:description" content="Lua 元表概念Set = {}
+Set.mt = {}
+
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+– 并集function Set.union">
 
 
 
@@ -121,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://yangso.com/2016/12/11/Python/"/>
+  <link rel="canonical" href="http://yangso.com/2016/12/30/Lua学习笔记之【6】/"/>
 
 
 
 
 
-  <title> Python | 洋葱的个人主页 </title>
+  <title> Lua学习笔记之【6】 | 洋葱的个人主页 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -291,7 +327,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yangso.com/2016/12/11/Python/">
+  <link itemprop="mainEntityOfPage" href="http://yangso.com/2016/12/30/Lua学习笔记之【6】/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="洋葱">
@@ -315,7 +351,7 @@
             
             
               
-                Python
+                Lua学习笔记之【6】
               
             
           </h1>
@@ -328,8 +364,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2016-12-11T01:38:03+08:00">
-                2016-12-11
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2016-12-30T23:02:23+08:00">
+                2016-12-30
               </time>
             
 
@@ -347,8 +383,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Lua/" itemprop="url" rel="index">
+                    <span itemprop="name">Lua</span>
                   </a>
                 </span>
 
@@ -362,8 +398,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/11/Python/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/Python/" itemprop="commentCount"></span>
+                <a href="/2016/12/30/Lua学习笔记之【6】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/30/Lua学习笔记之【6】/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,8 +425,108 @@
       
 
       
-        <p>Python Start ！！！</p>
+        <h2 id="Lua-元表概念"><a href="#Lua-元表概念" class="headerlink" title="Lua 元表概念"></a><strong>Lua 元表概念</strong></h2><pre><code>Set = {}
+Set.mt = {}
 
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+</code></pre><h2 id="–-并集"><a href="#–-并集" class="headerlink" title="– 并集"></a>– 并集</h2><pre><code>function Set.union( a, b )
+    local res = Set.new{}
+    for k in pairs(a) do
+        res[k] = true 
+    end
+    for k in pairs(b) do
+        print(k)
+        res[k] = true 
+    end
+
+    return res
+end
+</code></pre><h2 id="–-交集"><a href="#–-交集" class="headerlink" title="– 交集"></a>– 交集</h2><pre><code>function Set.intersection( a, b )
+    local res = Set.new{}
+    for k in pairs(a) do
+        res[k] = b[k]
+    end
+
+    return res
+end
+</code></pre><h2 id="–-小于"><a href="#–-小于" class="headerlink" title="– 小于"></a>– 小于</h2><pre><code>function Set.lessThan( a, b )
+    return a &lt;= b and not (b &lt;= a)
+end
+</code></pre><h2 id="–-小于等于"><a href="#–-小于等于" class="headerlink" title="– 小于等于"></a>– 小于等于</h2><pre><code>function Set.lesseAndEqual( a, b )
+    for k in pairs(a) do
+        if not b[k] then
+            return false
+        end
+    end
+    return true
+end
+</code></pre><h2 id="–-等于"><a href="#–-等于" class="headerlink" title="– 等于"></a>– 等于</h2><pre><code>function Set.equal( a, b )
+    return a &lt;= b and b &lt;= a
+end
+</code></pre><h2 id="–-格式化字符串"><a href="#–-格式化字符串" class="headerlink" title="– 格式化字符串"></a>– 格式化字符串</h2><pre><code>function Set.tostring( set )
+    local s = &quot;{&quot;
+    local sep = &quot;&quot;
+    for e in pairs(set) do
+        s = s .. sep .. e
+        sep = &quot;, &quot;
+    end
+
+    return s .. &quot;}&quot;
+end
+
+function Set.print( s )
+    print(Set.tostring(s))
+end
+
+Set.mt.__add     = Set.union
+Set.mt.__le      = Set.lesseAndEqual
+Set.mt.__lt        = Set.lessThan
+Set.mt.__eq        = Set.equal
+
+s1 = Set.new({10, 20, 30, 40})
+s2 = Set.new({80, 30, 90})
+
+s3 = s1 + s2
+Set.print(s3)
+Set.print(Set.intersection(s1,s2))
+
+print(s1 &gt; s2)        ---&gt; false
+print(s1 &gt;= s2)        ---&gt; false
+print(s1 == s2)        ---&gt; false
+print(s1 &lt; s2)        ---&gt; false
+print(s1 &lt;= s2)        ---&gt; false
+
+print(s1)            ---&gt;table: 0079B198
+print(s3)            ---&gt;table: 0079B3F0
+
+Set.mt.__tostring = Set.tostring
+print(s1)            ---&gt;{30, 10, 20, 40}
+print(s3)            ---&gt;{20, 80, 10, 40, 30, 90}
+</code></pre><h2 id="–-只读表"><a href="#–-只读表" class="headerlink" title="– 只读表"></a>– 只读表</h2><pre><code>function readOnly( t )
+    local proxy = {}
+    local mt = {
+        __index = t,
+        __newindex = function ( t, k, v )
+            print(&quot;attempt to update a read_only table.&quot;)
+        end
+    }
+
+    setmetatable(proxy, mt)
+    return proxy
+end
+
+days = readOnly{&quot;sun&quot;, &quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot;, &quot;thu&quot;, &quot;fri&quot;, &quot;sta&quot;}
+print(days[1])             ----&gt; sun
+days[2] = &quot;uuu&quot;         ----&gt; attempt to update a read_only table.
+</code></pre>
       
     </div>
 
@@ -411,19 +547,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/11/Lua/" rel="next" title="Lua学习笔记之【1】">
-                <i class="fa fa-chevron-left"></i> Lua学习笔记之【1】
+              <a href="/2016/12/29/Lua学习笔记之【5】/" rel="next" title="Lua学习笔记之【5】">
+                <i class="fa fa-chevron-left"></i> Lua学习笔记之【5】
               </a>
             
           </div>
@@ -431,10 +561,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/11/杂谈/" rel="prev" title="杂谈">
-                杂谈 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,10 +575,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/11/Python/"
-     data-title="Python"
+        <div class="ds-share flat" data-thread-key="2016/12/30/Lua学习笔记之【6】/"
+     data-title="Lua学习笔记之【6】"
      data-content=""
-     data-url="http://yangso.com/2016/12/11/Python/">
+     data-url="http://yangso.com/2016/12/30/Lua学习笔记之【6】/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -479,8 +605,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/11/Python/"
-           data-title="Python" data-url="http://yangso.com/2016/12/11/Python/">
+      <div class="ds-thread" data-thread-key="2016/12/30/Lua学习笔记之【6】/"
+           data-title="Lua学习笔记之【6】" data-url="http://yangso.com/2016/12/30/Lua学习笔记之【6】/">
       </div>
     
   </div>
@@ -504,8 +630,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -558,6 +693,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua-元表概念"><span class="nav-number">1.</span> <span class="nav-text">Lua 元表概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-并集"><span class="nav-number">2.</span> <span class="nav-text">– 并集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-交集"><span class="nav-number">3.</span> <span class="nav-text">– 交集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-小于"><span class="nav-number">4.</span> <span class="nav-text">– 小于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-小于等于"><span class="nav-number">5.</span> <span class="nav-text">– 小于等于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-等于"><span class="nav-number">6.</span> <span class="nav-text">– 等于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-格式化字符串"><span class="nav-number">7.</span> <span class="nav-text">– 格式化字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-只读表"><span class="nav-number">8.</span> <span class="nav-text">– 只读表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
