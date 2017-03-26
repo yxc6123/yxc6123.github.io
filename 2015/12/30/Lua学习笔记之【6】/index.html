@@ -84,12 +84,55 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="洋葱的个人主页">
-<meta property="og:url" content="http://yangso.com/tags/Python/index.html">
+<meta name="description" content="、
+Lua 元表概念Set = {}
+Set.mt = {}
+
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+– 并集function Set.uni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lua学习笔记之【6】">
+<meta property="og:url" content="http://yangso.com/2015/12/30/Lua学习笔记之【6】/index.html">
 <meta property="og:site_name" content="洋葱的个人主页">
+<meta property="og:description" content="、
+Lua 元表概念Set = {}
+Set.mt = {}
+
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+– 并集function Set.uni">
+<meta property="og:updated_time" content="2017-03-26T00:24:06.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="洋葱的个人主页">
+<meta name="twitter:title" content="Lua学习笔记之【6】">
+<meta name="twitter:description" content="、
+Lua 元表概念Set = {}
+Set.mt = {}
+
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+– 并集function Set.uni">
 
 
 
@@ -117,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="http://yangso.com/tags/Python/"/>
+  <link rel="canonical" href="http://yangso.com/2015/12/30/Lua学习笔记之【6】/"/>
 
 
 
 
 
-  <title> 标签: Python | 洋葱的个人主页 </title>
+  <title> Lua学习笔记之【6】 | 洋葱的个人主页 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -154,7 +197,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -277,46 +320,286 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Python
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yangso.com/2015/12/30/Lua学习笔记之【6】/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="洋葱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="洋葱的个人主页">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="洋葱的个人主页" src="">
+    </span>
+  </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Lua学习笔记之【6】
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2015-12-30T23:02:23+08:00">
+                2015-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lua/" itemprop="url" rel="index">
+                    <span itemprop="name">Lua</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2015/12/30/Lua学习笔记之【6】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/30/Lua学习笔记之【6】/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>、</p>
+<h2 id="Lua-元表概念"><a href="#Lua-元表概念" class="headerlink" title="Lua 元表概念"></a><strong>Lua 元表概念</strong></h2><pre><code>Set = {}
+Set.mt = {}
 
-      <h1 class="post-title">
+function Set.new(t)
+    local set = {}
+    setmetatable(set, Set.mt)
+    for _, l in ipairs(t) do
+        set[l] = true
+    end
+
+    return set
+end
+</code></pre><h2 id="–-并集"><a href="#–-并集" class="headerlink" title="– 并集"></a>– 并集</h2><pre><code>function Set.union( a, b )
+    local res = Set.new{}
+    for k in pairs(a) do
+        res[k] = true 
+    end
+    for k in pairs(b) do
+        print(k)
+        res[k] = true 
+    end
+
+    return res
+end
+</code></pre><h2 id="–-交集"><a href="#–-交集" class="headerlink" title="– 交集"></a>– 交集</h2><pre><code>function Set.intersection( a, b )
+    local res = Set.new{}
+    for k in pairs(a) do
+        res[k] = b[k]
+    end
+
+    return res
+end
+</code></pre><h2 id="–-小于"><a href="#–-小于" class="headerlink" title="– 小于"></a>– 小于</h2><pre><code>function Set.lessThan( a, b )
+    return a &lt;= b and not (b &lt;= a)
+end
+</code></pre><h2 id="–-小于等于"><a href="#–-小于等于" class="headerlink" title="– 小于等于"></a>– 小于等于</h2><pre><code>function Set.lesseAndEqual( a, b )
+    for k in pairs(a) do
+        if not b[k] then
+            return false
+        end
+    end
+    return true
+end
+</code></pre><h2 id="–-等于"><a href="#–-等于" class="headerlink" title="– 等于"></a>– 等于</h2><pre><code>function Set.equal( a, b )
+    return a &lt;= b and b &lt;= a
+end
+</code></pre><h2 id="–-格式化字符串"><a href="#–-格式化字符串" class="headerlink" title="– 格式化字符串"></a>– 格式化字符串</h2><pre><code>function Set.tostring( set )
+    local s = &quot;{&quot;
+    local sep = &quot;&quot;
+    for e in pairs(set) do
+        s = s .. sep .. e
+        sep = &quot;, &quot;
+    end
+
+    return s .. &quot;}&quot;
+end
+
+function Set.print( s )
+    print(Set.tostring(s))
+end
+
+Set.mt.__add     = Set.union
+Set.mt.__le      = Set.lesseAndEqual
+Set.mt.__lt        = Set.lessThan
+Set.mt.__eq        = Set.equal
+
+s1 = Set.new({10, 20, 30, 40})
+s2 = Set.new({80, 30, 90})
+
+s3 = s1 + s2
+Set.print(s3)
+Set.print(Set.intersection(s1,s2))
+
+print(s1 &gt; s2)        ---&gt; false
+print(s1 &gt;= s2)        ---&gt; false
+print(s1 == s2)        ---&gt; false
+print(s1 &lt; s2)        ---&gt; false
+print(s1 &lt;= s2)        ---&gt; false
+
+print(s1)            ---&gt;table: 0079B198
+print(s3)            ---&gt;table: 0079B3F0
+
+Set.mt.__tostring = Set.tostring
+print(s1)            ---&gt;{30, 10, 20, 40}
+print(s3)            ---&gt;{20, 80, 10, 40, 30, 90}
+</code></pre><h2 id="–-只读表"><a href="#–-只读表" class="headerlink" title="– 只读表"></a>– 只读表</h2><pre><code>function readOnly( t )
+    local proxy = {}
+    local mt = {
+        __index = t,
+        __newindex = function ( t, k, v )
+            print(&quot;attempt to update a read_only table.&quot;)
+        end
+    }
+
+    setmetatable(proxy, mt)
+    return proxy
+end
+
+days = readOnly{&quot;sun&quot;, &quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot;, &quot;thu&quot;, &quot;fri&quot;, &quot;sta&quot;}
+print(days[1])             ----&gt; sun
+days[2] = &quot;uuu&quot;         ----&gt; attempt to update a read_only table.
+</code></pre>
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2015/12/11/Python/" itemprop="url">
-              
-                <span itemprop="name">Python</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-12-11T01:38:03+08:00"
-              content="2015-12-11" >
-          12-11
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/29/Lua学习笔记之【5】/" rel="next" title="Lua学习笔记之【5】">
+                <i class="fa fa-chevron-left"></i> Lua学习笔记之【5】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/12/30/Lua学习笔记之【6】/"
+     data-title="Lua学习笔记之【6】"
+     data-content=""
+     data-url="http://yangso.com/2015/12/30/Lua学习笔记之【6】/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -324,6 +607,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/30/Lua学习笔记之【6】/"
+           data-title="Lua学习笔记之【6】" data-url="http://yangso.com/2015/12/30/Lua学习笔记之【6】/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -343,8 +634,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -397,6 +697,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua-元表概念"><span class="nav-number">1.</span> <span class="nav-text">Lua 元表概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-并集"><span class="nav-number">2.</span> <span class="nav-text">– 并集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-交集"><span class="nav-number">3.</span> <span class="nav-text">– 交集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-小于"><span class="nav-number">4.</span> <span class="nav-text">– 小于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-小于等于"><span class="nav-number">5.</span> <span class="nav-text">– 小于等于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-等于"><span class="nav-number">6.</span> <span class="nav-text">– 等于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-格式化字符串"><span class="nav-number">7.</span> <span class="nav-text">– 格式化字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-只读表"><span class="nav-number">8.</span> <span class="nav-text">– 只读表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -495,6 +811,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

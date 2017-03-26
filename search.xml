@@ -4,85 +4,85 @@
     
     <entry>
       <title><![CDATA[Lua学习笔记之【6】]]></title>
-      <url>%2F2016%2F12%2F30%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%906%E3%80%91%2F</url>
-      <content type="text"><![CDATA[Lua 元表概念Set = {} Set.mt = {} function Set.new(t) local set = {} setmetatable(set, Set.mt) for _, l in ipairs(t) do set[l] = true end return set end – 并集function Set.union( a, b ) local res = Set.new{} for k in pairs(a) do res[k] = true end for k in pairs(b) do print(k) res[k] = true end return res end – 交集function Set.intersection( a, b ) local res = Set.new{} for k in pairs(a) do res[k] = b[k] end return res end – 小于function Set.lessThan( a, b ) return a &lt;= b and not (b &lt;= a) end – 小于等于function Set.lesseAndEqual( a, b ) for k in pairs(a) do if not b[k] then return false end end return true end – 等于function Set.equal( a, b ) return a &lt;= b and b &lt;= a end – 格式化字符串function Set.tostring( set ) local s = &quot;{&quot; local sep = &quot;&quot; for e in pairs(set) do s = s .. sep .. e sep = &quot;, &quot; end return s .. &quot;}&quot; end function Set.print( s ) print(Set.tostring(s)) end Set.mt.__add = Set.union Set.mt.__le = Set.lesseAndEqual Set.mt.__lt = Set.lessThan Set.mt.__eq = Set.equal s1 = Set.new({10, 20, 30, 40}) s2 = Set.new({80, 30, 90}) s3 = s1 + s2 Set.print(s3) Set.print(Set.intersection(s1,s2)) print(s1 &gt; s2) ---&gt; false print(s1 &gt;= s2) ---&gt; false print(s1 == s2) ---&gt; false print(s1 &lt; s2) ---&gt; false print(s1 &lt;= s2) ---&gt; false print(s1) ---&gt;table: 0079B198 print(s3) ---&gt;table: 0079B3F0 Set.mt.__tostring = Set.tostring print(s1) ---&gt;{30, 10, 20, 40} print(s3) ---&gt;{20, 80, 10, 40, 30, 90} – 只读表function readOnly( t ) local proxy = {} local mt = { __index = t, __newindex = function ( t, k, v ) print(&quot;attempt to update a read_only table.&quot;) end } setmetatable(proxy, mt) return proxy end days = readOnly{&quot;sun&quot;, &quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot;, &quot;thu&quot;, &quot;fri&quot;, &quot;sta&quot;} print(days[1]) ----&gt; sun days[2] = &quot;uuu&quot; ----&gt; attempt to update a read_only table.]]></content>
+      <url>%2F2015%2F12%2F30%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%906%E3%80%91%2F</url>
+      <content type="text"><![CDATA[、 Lua 元表概念Set = {} Set.mt = {} function Set.new(t) local set = {} setmetatable(set, Set.mt) for _, l in ipairs(t) do set[l] = true end return set end – 并集function Set.union( a, b ) local res = Set.new{} for k in pairs(a) do res[k] = true end for k in pairs(b) do print(k) res[k] = true end return res end – 交集function Set.intersection( a, b ) local res = Set.new{} for k in pairs(a) do res[k] = b[k] end return res end – 小于function Set.lessThan( a, b ) return a &lt;= b and not (b &lt;= a) end – 小于等于function Set.lesseAndEqual( a, b ) for k in pairs(a) do if not b[k] then return false end end return true end – 等于function Set.equal( a, b ) return a &lt;= b and b &lt;= a end – 格式化字符串function Set.tostring( set ) local s = &quot;{&quot; local sep = &quot;&quot; for e in pairs(set) do s = s .. sep .. e sep = &quot;, &quot; end return s .. &quot;}&quot; end function Set.print( s ) print(Set.tostring(s)) end Set.mt.__add = Set.union Set.mt.__le = Set.lesseAndEqual Set.mt.__lt = Set.lessThan Set.mt.__eq = Set.equal s1 = Set.new({10, 20, 30, 40}) s2 = Set.new({80, 30, 90}) s3 = s1 + s2 Set.print(s3) Set.print(Set.intersection(s1,s2)) print(s1 &gt; s2) ---&gt; false print(s1 &gt;= s2) ---&gt; false print(s1 == s2) ---&gt; false print(s1 &lt; s2) ---&gt; false print(s1 &lt;= s2) ---&gt; false print(s1) ---&gt;table: 0079B198 print(s3) ---&gt;table: 0079B3F0 Set.mt.__tostring = Set.tostring print(s1) ---&gt;{30, 10, 20, 40} print(s3) ---&gt;{20, 80, 10, 40, 30, 90} – 只读表function readOnly( t ) local proxy = {} local mt = { __index = t, __newindex = function ( t, k, v ) print(&quot;attempt to update a read_only table.&quot;) end } setmetatable(proxy, mt) return proxy end days = readOnly{&quot;sun&quot;, &quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot;, &quot;thu&quot;, &quot;fri&quot;, &quot;sta&quot;} print(days[1]) ----&gt; sun days[2] = &quot;uuu&quot; ----&gt; attempt to update a read_only table.]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Lua学习笔记之【5】]]></title>
-      <url>%2F2016%2F12%2F29%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%905%E3%80%91%2F</url>
+      <url>%2F2015%2F12%2F29%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%905%E3%80%91%2F</url>
       <content type="text"><![CDATA[协同的基础Lua的所有协同函数存放于coroutine table.create函数用于创建新的协同程序，其只有 一个参数：一个函数，即协同程序将要运行的代码。若一切顺利，返回值为thread类型，表 示创建成功。通常情况下，create的参数是匿名函数： co = coroutine.create(functon () -- do something... end) print(coroutine.status(co)) ====&gt; suspended print(co) ====&gt; return thread: 006FC108 coroutine.resume(co) ====&gt; do somthing print(coroutine.status(co)) ====&gt; dead co = coroutine.create(function ( ... ) for i=1, 10 do print(&quot;co....&quot;..i) coroutine.yield() end end) 使用函数yield可以使程序挂起，当我们激活被挂起的程序时，将从函数yield的位置继续执 行程序，直到再次遇到yield或程序结束 coroutine.resume(co) co....1 print(coroutine.status(co)) suspended coroutine.resume(co) co....2 print(coroutine.status(co)) suspended coroutine.resume(co) co....3 print(coroutine.status(co)) suspended coroutine.resume(co) co....4 通过resume-yield来交换数据1.只有resume,没有yield, resume把参数传递给协同程序 co = coroutine.create(function (a,b,c) print(&quot;co&quot;, a,b,c) end) coroutine.resume(co, 1, 2, 3) ------&gt; co 1 2 3 2.数据由yield传给resume。true表明调用成功，true之后的部分，即是yield的参数 co = coroutine.create(function ( a, b ) coroutine.yield(a + b, a - b) end) print(coroutine.resume(co, 30, 10)) -------40 20 resume的参数也会传递过去 co = coroutine.create (function () print(&quot;co&quot;, coroutine.yield()) end) coroutine.resume(co) coroutine.resume(co, 4, 5) ------&gt; co 4 5 3.协同代码结束时的返回值，会传给resume co = coroutine.create(function () return 6, 7 end) print(coroutine.resume(co)) -----&gt; true 6 7 协同最具代表性的例子是用来解决生产者-消费者问题function receive( prod ) local status, value = coroutine.resume(prod) return value end function send( x ) coroutine.yield(x) end -- 创建协同函数 producer = coroutine.create(function ( ... ) while true do local x = io.read() send(x) end end) function filter( prod ) return coroutine.create(function ( ... ) local line = 1 while true do local x = receive(prod) x = string.format(&quot;%5d %s&quot;, line, x) send(x) line = line + 1 end end) end function consumer( prod ) while true do local x = receive(prod) io.write(x, &quot;\n&quot;) end end consumer(filter(producer)) 非抢占式多线程]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Lua学习笔记之【2】]]></title>
-      <url>%2F2016%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%902%E3%80%91%2F</url>
-      <content type="text"><![CDATA[类型和值 nil 和 false 为假其他所有值均为真 string 类型 a = &quot;Hello world!&quot; print(a) ====&gt; Hello World! \a bell \b back space -- 后退 \f form feed -- 换页 \n newline -- 换行 \r carriage return -- 回车 \t horizontal tab -- 制表 \v vertical tab \\ backslash -- &quot;\&quot; \&quot; double quote -- 双引号 \&apos; single quote -- 单引号 \[ left square bracket -- 左中括号 \] right square bracket -- 右中括号 Lua会自动在string和numbers之间自动进行类型转换，当一个字符串使用算术操作符时，string就会被转成数字 print(&quot;10 + 1) ---&gt; 11 tostirng(10) ---&gt; &quot;10&quot; tonumber(&quot;10&quot;) ---&gt; 10 算数运算符 二元运算符： + － × / ＾ 一元运算符： － 关系运算符 &lt; &gt; &lt;= &gt;= == ~=（不等于） 逻辑运算符 and or not 连接运算符 .. &quot;hell0&quot; .. 1 ---&gt; hello1 表的构造 days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday“，&quot;Friday&quot;, &quot;Saturday&quot;} 表内的字段可以使用任何类型]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[Lua学习笔记之【4】]]></title>
-      <url>%2F2016%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%904%E3%80%91%2F</url>
+      <url>%2F2015%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%904%E3%80%91%2F</url>
       <content type="text"><![CDATA[迭代器 function list_iter( t ) local i = 0 local n = table.getn(t) return function ( ... ) i = i + 1 if i &lt;= n then return t[i] end end end t = {10, 20, 30, 40} iter = list_iter(t) while true do local ele = iter() if ele == nil then break end print(ele) end for ele in list_iter(t) do print(ele) end 一般情况我们使用： for key, val in pairs(table) do loop-part end for i, v ipairs(table) do loop-part end 下面情况对比： t = {1,2,3,4,nil,10} for i,k in pairs(t) do print(k) end 输出结果： 1 2 3 4 10 for i,k in ipairs(t) do print(k) end 输出结果：1 2 3 4 编译，运行，错误Lua提供高级的require函数来加载运行库。粗略的说require和dofile完成同样的功能但有两点不同： 1. require会搜索目录加载文件 2. require会判断是否文件已经加载避免重复加载同一文件。由于上述特征，require在Lua中是加载库的更好的函数 C packagesLua在一个叫loadlib的函数内提供了所有的动态连接的功能。这个函数有两个参数:库的绝对路径和初始化函数 local path = &quot;/usr/local/lua/lib/libluasocket.so&quot; local f = loadlib(path, &quot;luaopen_socket&quot;) f() -- actually open the library loadlib函数加载指定的库并且连接到Lua，然而它并不打开库（也就是说没有调用初始化函数），反之他返回初始化函数 作为Lua的一个函数，这样我们就可以直接在Lua中调用他。如果加载动态库或者查找初始化函数时出错，loadlib将返回 nil和错误信息。我们可以修改前面一段代码，使其检测错误然后调用初始化函数： pcall在保护模式（protected mode）下执行函数内容，同时捕获所有的异常和错误。若一切正常，pcall返回true以及“被 执行函数”的返回值；否则返回nil和错误信息. local status, err = pcall(function () error({code=121}) end) print(err.code) --&gt; 121]]></content>
     </entry>
 
     
     <entry>
+      <title><![CDATA[Lua学习笔记之【2】]]></title>
+      <url>%2F2015%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%902%E3%80%91%2F</url>
+      <content type="text"><![CDATA[类型和值 nil 和 false 为假其他所有值均为真 string 类型 a = &quot;Hello world!&quot; print(a) ====&gt; Hello World! \a bell \b back space -- 后退 \f form feed -- 换页 \n newline -- 换行 \r carriage return -- 回车 \t horizontal tab -- 制表 \v vertical tab \\ backslash -- &quot;\&quot; \&quot; double quote -- 双引号 \&apos; single quote -- 单引号 \[ left square bracket -- 左中括号 \] right square bracket -- 右中括号 Lua会自动在string和numbers之间自动进行类型转换，当一个字符串使用算术操作符时，string就会被转成数字 print(&quot;10 + 1) ---&gt; 11 tostirng(10) ---&gt; &quot;10&quot; tonumber(&quot;10&quot;) ---&gt; 10 算数运算符 二元运算符： + － × / ＾ 一元运算符： － 关系运算符 &lt; &gt; &lt;= &gt;= == ~=（不等于） 逻辑运算符 and or not 连接运算符 .. &quot;hell0&quot; .. 1 ---&gt; hello1 表的构造 days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday“，&quot;Friday&quot;, &quot;Saturday&quot;} 表内的字段可以使用任何类型]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Lua学习笔记之【3】]]></title>
-      <url>%2F2016%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%903%E3%80%91%2F</url>
+      <url>%2F2015%2F12%2F28%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%903%E3%80%91%2F</url>
       <content type="text"><![CDATA[赋值改变一个值基本方法 a = “hello world”a = “hello” .. “world” —&gt;&gt; 使用 连接符 .. 连接 a, b, c = 0, 1 print(a, b, c) —&gt;&gt; a = 0 b = 1 c = nil 控制结构语句和C语言一样使用 if condition then then-part end if condition then then-part else else-part end if condition then then-part elseif condition then elseif-part ... elseif-part end while condition do statements end repeat statements until conditions for var=exp1, exp2, exp3 do loop-part end for将用exp3作为step从exp1（初始值）到exp2（终止值），执行loop-part。其中exp3可以省略，默认step=1 for _, v in pairs(a) do print() end 函数function function_name( ... ) -- body end 当函数只有一个参数并且参数是字符或者表构造的时候，（）可有可无 print &quot;hello world&quot; &lt;-----&gt; print(&quot;hello world&quot;) dofile &quot;a.lu&quot; &lt;-----&gt; dofile(&quot;a.lua&quot;) 语法糖效果： o:func(x) &lt;-----&gt; o.foo(o, x) 多函数返回 s, e = stirng.find(‘hello Lua users”, “Lua”) print(s, e) —-&gt; 7 9 返回多个结果的时候直接在return处返回即可]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Python相关记录]]></title>
-      <url>%2F2016%2F12%2F19%2FPython%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95%2F</url>
+      <url>%2F2015%2F12%2F19%2FPython%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95%2F</url>
       <content type="text"><![CDATA[print(‘中文’) classmates=[‘Michael’, ‘Bob’, ‘Tracy’]print(classmates)print(len(classmates)) print(classmates[-1]) for ele in classmates: print(ele) print(ord(‘中’)) print(chr(66)) t = (1,)print(t)print(len(t)) -- coding: utf-8 --L = [ [‘Apple’, ‘Google’, ‘Microsoft’], [‘Java’, ‘Python’, ‘Ruby’, ‘PHP’], [‘Adam’, ‘Bart’, ‘Lisa’]] index start by 0print(L[0][0])]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[杂谈]]></title>
-      <url>%2F2016%2F12%2F11%2F%E6%9D%82%E8%B0%88%2F</url>
+      <url>%2F2015%2F12%2F11%2F%E6%9D%82%E8%B0%88%2F</url>
       <content type="text"></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Python]]></title>
-      <url>%2F2016%2F12%2F11%2FPython%2F</url>
+      <url>%2F2015%2F12%2F11%2FPython%2F</url>
       <content type="text"><![CDATA[Python Start ！！！]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Lua学习笔记之【1】]]></title>
-      <url>%2F2016%2F12%2F11%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%901%E3%80%91%2F</url>
+      <url>%2F2015%2F12%2F11%2FLua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E3%80%901%E3%80%91%2F</url>
       <content type="text"><![CDATA[第一个lua程序 Hello world! print(&quot;Hello world!&quot;) 稍微复杂一点的 function fact( n ) if n == 0 then return 1 else return n * (n - 1) end end print(fact(4)) 全局变量 print(b) ----&gt; nil 【b没有值】 b = 10 print(b) ----&gt; 10 删除一个全局变量 b = nil print(b) ----&gt;nil 词法约定: Lua的保留字 and break do else elseif end false for function if in local nil not or repeat return then true until while Lua 大小写敏感 注释：单行注释 — 多行注释 —[[ print() ]]—]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Lua学习笔记之【1】]]></title>
-      <url>%2F2016%2F12%2F11%2FLua%2F</url>
+      <url>%2F2015%2F12%2F11%2FLua%2F</url>
       <content type="text"><![CDATA[第一个lua程序 Hello world! print(&quot;Hello world!&quot;) 稍微复杂一点的 function fact( n ) if n == 0 then return 1 else return n * (n - 1) end end print(fact(4)) 全局变量 print(b) ----&gt; nil 【b没有值】 b = 10 print(b) ----&gt; 10 删除一个全局变量 b = nil print(b) ----&gt;nil 词法约定: Lua的保留字 and break do else elseif end false for function if in local nil not or repeat return then true until while Lua 大小写敏感 注释：单行注释 — 多行注释 —[[ print() ]]—]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Cocos]]></title>
-      <url>%2F2016%2F12%2F11%2FCocos%2F</url>
-      <content type="text"><![CDATA[Cocos Start ！！！]]></content>
+      <title><![CDATA[Andorid]]></title>
+      <url>%2F2015%2F12%2F11%2FAndorid%2F</url>
+      <content type="text"><![CDATA[Android Start ！！！]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Andorid]]></title>
-      <url>%2F2016%2F12%2F11%2FAndorid%2F</url>
-      <content type="text"><![CDATA[Android Start ！！！]]></content>
+      <title><![CDATA[Cocos]]></title>
+      <url>%2F2015%2F06%2F12%2FCocos%2F</url>
+      <content type="text"><![CDATA[Cocos Start ！！！]]></content>
     </entry>
 
     
