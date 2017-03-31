@@ -750,6 +750,183 @@ consumer(filter(producer))
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yangso.com/2015/12/28/Lua学习笔记之【2】/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="洋葱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="洋葱的个人主页">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="洋葱的个人主页" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/28/Lua学习笔记之【2】/" itemprop="url">
+                  Lua学习笔记之【2】
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2015-12-28T21:39:35+08:00">
+                2015-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lua/" itemprop="url" rel="index">
+                    <span itemprop="name">Lua</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>类型和值</strong></p>
+<blockquote>
+<p>nil 和 false 为假其他所有值均为真</p>
+<p>string 类型</p>
+<pre><code>a = &quot;Hello world!&quot;
+print(a) ====&gt; Hello World!
+</code></pre></blockquote>
+<pre><code>\a bell
+\b back space               -- 后退
+\f form feed                -- 换页
+\n newline                  -- 换行
+\r carriage return          -- 回车
+\t horizontal tab           -- 制表
+\v vertical tab
+\\ backslash                 -- &quot;\&quot;
+\&quot; double quote             -- 双引号
+\&apos; single quote             -- 单引号
+\[ left square bracket      -- 左中括号
+\] right square bracket     -- 右中括号
+</code></pre><blockquote>
+<p>Lua会自动在string和numbers之间自动进行类型转换，当一个字符串使用算术操作符时，string就会被转成数字</p>
+</blockquote>
+<pre><code>print(&quot;10 + 1)     ---&gt; 11
+tostirng(10)    ---&gt; &quot;10&quot;
+tonumber(&quot;10&quot;)    ---&gt; 10
+</code></pre><blockquote>
+<p>算数运算符</p>
+<pre><code>二元运算符： +    －    ×    /    ＾
+一元运算符：    －
+</code></pre><p>关系运算符</p>
+</blockquote>
+<pre><code>&lt;    &gt;    &lt;=    &gt;=    ==    ~=（不等于）
+</code></pre><blockquote>
+<p>逻辑运算符</p>
+</blockquote>
+<pre><code>and        or        not
+</code></pre><blockquote>
+<p>连接运算符</p>
+</blockquote>
+<pre><code>..   &quot;hell0&quot; .. 1  ---&gt; hello1
+</code></pre><blockquote>
+<p>表的构造</p>
+</blockquote>
+<pre><code>days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday“，&quot;Friday&quot;, &quot;Saturday&quot;}
+表内的字段可以使用任何类型
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yangso.com/2015/12/28/Lua学习笔记之【4】/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -907,183 +1084,6 @@ pcall在保护模式（protected mode）下执行函数内容，同时捕获所�
 
 local status, err = pcall(function () error({code=121}) end)
 print(err.code)  --&gt;  121
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yangso.com/2015/12/28/Lua学习笔记之【2】/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="洋葱">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="洋葱的个人主页">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="洋葱的个人主页" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/28/Lua学习笔记之【2】/" itemprop="url">
-                  Lua学习笔记之【2】
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2015-12-28T21:39:35+08:00">
-                2015-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Lua/" itemprop="url" rel="index">
-                    <span itemprop="name">Lua</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>类型和值</strong></p>
-<blockquote>
-<p>nil 和 false 为假其他所有值均为真</p>
-<p>string 类型</p>
-<pre><code>a = &quot;Hello world!&quot;
-print(a) ====&gt; Hello World!
-</code></pre></blockquote>
-<pre><code>\a bell
-\b back space               -- 后退
-\f form feed                -- 换页
-\n newline                  -- 换行
-\r carriage return          -- 回车
-\t horizontal tab           -- 制表
-\v vertical tab
-\\ backslash                 -- &quot;\&quot;
-\&quot; double quote             -- 双引号
-\&apos; single quote             -- 单引号
-\[ left square bracket      -- 左中括号
-\] right square bracket     -- 右中括号
-</code></pre><blockquote>
-<p>Lua会自动在string和numbers之间自动进行类型转换，当一个字符串使用算术操作符时，string就会被转成数字</p>
-</blockquote>
-<pre><code>print(&quot;10 + 1)     ---&gt; 11
-tostirng(10)    ---&gt; &quot;10&quot;
-tonumber(&quot;10&quot;)    ---&gt; 10
-</code></pre><blockquote>
-<p>算数运算符</p>
-<pre><code>二元运算符： +    －    ×    /    ＾
-一元运算符：    －
-</code></pre><p>关系运算符</p>
-</blockquote>
-<pre><code>&lt;    &gt;    &lt;=    &gt;=    ==    ~=（不等于）
-</code></pre><blockquote>
-<p>逻辑运算符</p>
-</blockquote>
-<pre><code>and        or        not
-</code></pre><blockquote>
-<p>连接运算符</p>
-</blockquote>
-<pre><code>..   &quot;hell0&quot; .. 1  ---&gt; hello1
-</code></pre><blockquote>
-<p>表的构造</p>
-</blockquote>
-<pre><code>days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday“，&quot;Friday&quot;, &quot;Saturday&quot;}
-表内的字段可以使用任何类型
 </code></pre>
           
         
@@ -2104,7 +2104,7 @@ while
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

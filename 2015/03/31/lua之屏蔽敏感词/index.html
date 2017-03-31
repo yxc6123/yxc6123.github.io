@@ -84,43 +84,25 @@
 
 
 
-<meta name="description" content="赋值改变一个值基本方法
-
-a = “hello world”a = “hello” .. “world”  —&amp;gt;&amp;gt; 使用 连接符 .. 连接
-a, b, c = 0, 1
-print(a, b, c)          —&amp;gt;&amp;gt; a = 0  b = 1  c = nil
-
-控制结构语句和C语言一样使用
-if condition then
-    then-part
-end">
+<meta name="description" content="local CURRENT_MODULE_NAME = …
+local s_inst = nil
+local SensitiveWords = class(“SensitiveWords”)
+function SensitiveWords:getInstance(  )    if nil == s_inst then        s_inst = SensitiveWords.new()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lua学习笔记之【3】">
-<meta property="og:url" content="http://yangso.com/2015/12/28/Lua学习笔记之【3】/index.html">
+<meta property="og:title" content="lua之屏蔽敏感词">
+<meta property="og:url" content="http://yangso.com/2015/03/31/lua之屏蔽敏感词/index.html">
 <meta property="og:site_name" content="洋葱的个人主页">
-<meta property="og:description" content="赋值改变一个值基本方法
-
-a = “hello world”a = “hello” .. “world”  —&amp;gt;&amp;gt; 使用 连接符 .. 连接
-a, b, c = 0, 1
-print(a, b, c)          —&amp;gt;&amp;gt; a = 0  b = 1  c = nil
-
-控制结构语句和C语言一样使用
-if condition then
-    then-part
-end">
-<meta property="og:updated_time" content="2017-03-26T00:24:23.557Z">
+<meta property="og:description" content="local CURRENT_MODULE_NAME = …
+local s_inst = nil
+local SensitiveWords = class(“SensitiveWords”)
+function SensitiveWords:getInstance(  )    if nil == s_inst then        s_inst = SensitiveWords.new()">
+<meta property="og:updated_time" content="2017-03-31T12:36:19.723Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lua学习笔记之【3】">
-<meta name="twitter:description" content="赋值改变一个值基本方法
-
-a = “hello world”a = “hello” .. “world”  —&amp;gt;&amp;gt; 使用 连接符 .. 连接
-a, b, c = 0, 1
-print(a, b, c)          —&amp;gt;&amp;gt; a = 0  b = 1  c = nil
-
-控制结构语句和C语言一样使用
-if condition then
-    then-part
-end">
+<meta name="twitter:title" content="lua之屏蔽敏感词">
+<meta name="twitter:description" content="local CURRENT_MODULE_NAME = …
+local s_inst = nil
+local SensitiveWords = class(“SensitiveWords”)
+function SensitiveWords:getInstance(  )    if nil == s_inst then        s_inst = SensitiveWords.new()">
 
 
 
@@ -148,13 +130,13 @@ end">
 
 
 
-  <link rel="canonical" href="http://yangso.com/2015/12/28/Lua学习笔记之【3】/"/>
+  <link rel="canonical" href="http://yangso.com/2015/03/31/lua之屏蔽敏感词/"/>
 
 
 
 
 
-  <title> Lua学习笔记之【3】 | 洋葱的个人主页 </title>
+  <title> lua之屏蔽敏感词 | 洋葱的个人主页 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -318,7 +300,7 @@ end">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yangso.com/2015/12/28/Lua学习笔记之【3】/">
+  <link itemprop="mainEntityOfPage" href="http://yangso.com/2015/03/31/lua之屏蔽敏感词/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="洋葱">
@@ -342,7 +324,7 @@ end">
             
             
               
-                Lua学习笔记之【3】
+                lua之屏蔽敏感词
               
             
           </h1>
@@ -355,8 +337,8 @@ end">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="post.created" itemprop="dateCreated datePublished" datetime="2015-12-28T21:11:05+08:00">
-                2015-12-28
+              <time title="post.created" itemprop="dateCreated datePublished" datetime="2015-03-31T20:34:05+08:00">
+                2015-03-31
               </time>
             
 
@@ -365,24 +347,6 @@ end">
             
           </span>
 
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Lua/" itemprop="url" rel="index">
-                    <span itemprop="name">Lua</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -407,63 +371,106 @@ end">
       
 
       
-        <h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a><strong>赋值</strong></h2><p>改变一个值基本方法</p>
-<blockquote>
-<p>a = “hello world”<br>a = “hello” .. “world”  —&gt;&gt; 使用 连接符 .. 连接</p>
-<p>a, b, c = 0, 1</p>
-<p>print(a, b, c)          —&gt;&gt; a = 0  b = 1  c = nil</p>
-</blockquote>
-<p>控制结构语句和C语言一样使用</p>
-<pre><code>if condition then
-    then-part
+        <p>local CURRENT_MODULE_NAME = …</p>
+<p>local s_inst = nil</p>
+<p>local SensitiveWords = class(“SensitiveWords”)</p>
+<p>function SensitiveWords:getInstance(  )<br>    if nil == s_inst then<br>        s_inst = SensitiveWords.new()</p>
+<pre><code>    if s_inst then
+        s_inst:initData()
+    end
 end
 
-if condition then
-    then-part
-else
-    else-part
+return s_inst
+</code></pre><p>end</p>
+<p>–树节点创建<br>function SensitiveWords:createNode( c, flag, nodes )<br>    local node = {}<br>    node.c = c or nil<br>    node.flag = flag or 0<br>    node.nodes = nodes or {}</p>
+<pre><code>return node
+</code></pre><p>end</p>
+<p>–初始化树结构<br>function SensitiveWords:createTree( sensitiveWords )<br>    self.rootNode = self:createNode( “R” )<br>    for k, v in pairs( sensitiveWords ) do<br>        local chars = self:getCharArray( v )<br>        if #chars &gt; 0 then<br>            self:insertNode( self.rootNode, chars, 1 )<br>        end<br>    end<br>end</p>
+<p>–插入节点<br>function SensitiveWords:insertNode( node, cs, index )<br>    local n = self:findNode( node, cs[index] )<br>    if n == nil then<br>        n = self:createNode( cs[index] )<br>        table.insert( node.nodes, n )<br>    end</p>
+<pre><code>if index == #cs then
+    n.flag = 1
 end
 
-if condition then
-    then-part
-elseif condition then
-    elseif-part
-...
-    elseif-part
+index = index + 1
+if index &lt;= #cs then
+    self:insertNode( n, cs, index )
+end
+</code></pre><p>end</p>
+<p>–节点中查找子节点<br>function SensitiveWords:findNode( node, c )<br>    local nodes = node.nodes<br>    local rn = nil<br>    for i,v in ipairs( nodes ) do<br>        if v.c == c then<br>            rn = v<br>            break<br>        end<br>    end</p>
+<pre><code>return rn
+</code></pre><p>end</p>
+<p>–字符串中是否含有敏感字<br>function SensitiveWords:isSensitiveInPutStr( inputStr )<br>    local chars = self:getCharArray( inputStr )<br>    local index = 1<br>    local node = self.rootNode<br>    local word = {}</p>
+<pre><code>while #chars &gt;= index do
+    if chars[index] ~= &apos; &apos; then
+        node = self:findNode( node, chars[index] )
+    end
+
+    if node == nil then
+        index = index - #word 
+        node = self.rootNode
+        word = {}
+    elseif node.flag == 1 then
+        return true
+    else
+        table.insert( word, index )
+    end
+    index = index + 1
 end
 
-while condition do 
-    statements
+return false
+</code></pre><p>end</p>
+<p>–字符串转换为字符数组<br>function SensitiveWords:getCharArray( str )<br>    print(“getCharArray=====”)<br>    local array = {}<br>    local str = str or “”<br>    local len = string.len( str )<br>    while str do<br>        local fontUTF = string.byte( str, 1 )<br>        if fontUTF == nil then<br>            break<br>        end</p>
+<pre><code>    --lua中字符占1byte,中文占3byte
+    if fontUTF &gt; 127 then 
+        local tmp = string.sub( str, 1, 3 )
+        table.insert( array, tmp )
+        str = string.sub( str, 4, len )
+    else
+        local tmp = string.sub( str, 1, 1 )
+        table.insert( array, tmp )
+        str = string.sub( str, 2, len )
+    end
 end
 
-repeat
-    statements
-until conditions
+return array
+</code></pre><p>end</p>
+<p>–将字符串中敏感字用*替换返回<br>function SensitiveWords:getSensitiveWords( inputStr )<br>    print(inputStr)<br>    if not self:isSensitiveInPutStr(inputStr) then<br>        print(“没有哦。。。”)<br>        return inputStr<br>    end</p>
+<pre><code>local chars = self:getCharArray( inputStr )
+local index = 1
+local node = self.rootNode
+local word = {}
 
-for var=exp1, exp2, exp3 do
-    loop-part
+while #chars &gt;= index do
+    if chars[index] ~= &apos; &apos; then
+        node = self:findNode( node, chars[index] )
+    end
+
+    if node == nil then
+        index = index - #word 
+        node = self.rootNode
+        word = {}
+    elseif node.flag == 1 then
+        table.insert( word, index )
+        for i,v in ipairs( word ) do
+            chars[v] = &apos;*&apos;
+        end
+        node = self.rootNode
+        word = {}
+    else
+        table.insert( word, index )
+    end
+    index = index + 1
 end
-for将用exp3作为step从exp1（初始值）到exp2（终止值），执行loop-part。其中exp3可以省略，默认step=1
 
-for _, v in pairs(a) do
-    print()
+local str = &apos;&apos;
+for i,v in ipairs( chars ) do
+    str = str .. v
 end
-</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h2><pre><code>function function_name( ... )
-    -- body
-end
-当函数只有一个参数并且参数是字符或者表构造的时候，（）可有可无
 
-print &quot;hello world&quot;   &lt;-----&gt;   print(&quot;hello world&quot;)
-dofile &quot;a.lu&quot;         &lt;-----&gt;   dofile(&quot;a.lua&quot;)
-
-语法糖效果：
-o:func(x)                &lt;-----&gt;   o.foo(o, x)
-</code></pre><p>多函数返回</p>
-<blockquote>
-<p> s, e = stirng.find(‘hello Lua users”, “Lua”)</p>
-<p> print(s, e)    —-&gt; 7  9</p>
-<p> 返回多个结果的时候直接在return处返回即可</p>
-</blockquote>
+return str
+</code></pre><p>end</p>
+<p>function SensitiveWords:initData(  )<br>    self:createTree(WarningWords.All)<br>end</p>
+<p>return SensitiveWords</p>
 
       
     </div>
@@ -490,18 +497,14 @@ o:func(x)                &lt;-----&gt;   o.foo(o, x)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/19/Python相关记录/" rel="next" title="Python相关记录">
-                <i class="fa fa-chevron-left"></i> Python相关记录
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/28/Lua学习笔记之【4】/" rel="prev" title="Lua学习笔记之【4】">
-                Lua学习笔记之【4】 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/06/12/Cocos/" rel="prev" title="Cocos">
+                Cocos <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,10 +520,10 @@ o:func(x)                &lt;-----&gt;   o.foo(o, x)
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/28/Lua学习笔记之【3】/"
-     data-title="Lua学习笔记之【3】"
+        <div class="ds-share flat" data-thread-key="2015/03/31/lua之屏蔽敏感词/"
+     data-title="lua之屏蔽敏感词"
      data-content=""
-     data-url="http://yangso.com/2015/12/28/Lua学习笔记之【3】/">
+     data-url="http://yangso.com/2015/03/31/lua之屏蔽敏感词/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -564,17 +567,8 @@ o:func(x)                &lt;-----&gt;   o.foo(o, x)
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -627,22 +621,6 @@ o:func(x)                &lt;-----&gt;   o.foo(o, x)
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值"><span class="nav-number">1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
